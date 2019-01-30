@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-platform-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
+
+android {
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileSdkVersion 28
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.fatapps.trams"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+
+    implementation project(':domain')
+    implementation project(':data')
+    implementation project(':device')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation 'com.google.android.material:material:1.0.0-alpha1'
+    testImplementation "junit:junit:${project.ext.jUnitVersion}"
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-beta02', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    testImplementation 'junit:junit:4.12'
+
+    //Rxjava2
+    implementation "io.reactivex.rxjava2:rxandroid:${project.ext.rxAndroidVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${project.ext.rxJavaVersion}"
+    implementation "com.github.akarnokd:rxjava2-interop:0.13.4"
+    implementation 'io.reactivex:rxandroid:1.2.1'
+
+    kapt 'com.android.databinding:compiler:3.1.4'
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.0'
+
+// Koin for Android
+    implementation "org.koin:koin-core:${project.ext.koinVersion}"
+    implementation "org.koin:koin-android:${project.ext.koinVersion}"
+    implementation "org.koin:koin-androidx-scope:${project.ext.koinVersion}"
+    implementation "org.koin:koin-androidx-viewmodel:${project.ext.koinVersion}"
+
+//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+}

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.gui.contacts.edit.EditContactActivity">
+
+    <data>
+        <import
+                type="android.view.View" />
+
+        <variable
+                name="vm"
+                type="com.fatapps.trams.TimeTableViewModel" />
+    </data>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="wrap_content"
+            android:text='@{vm.stopNameField}'
+            android:textColor="@color/colorPrimary"
+            android:textAllCaps="true"
+            tools:text="Ratusz Arsenal"
+    />
+    <TableLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"04"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"05"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"06"}'/>
+
+            <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"07"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"08"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"09"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"10"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"11"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"12"}'/>
+
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"13"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"14"}'/>
+
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"15"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"16"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"17"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"18"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"19"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"20"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"21"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"22"}'/>
+        <include
+                layout="@layout/table_row"
+                app:vm="@{vm}"
+                app:hr='@{"23"}'/>
+            </TableLayout>
+</LinearLayout>
+    </ScrollView>
+</layout>
+
