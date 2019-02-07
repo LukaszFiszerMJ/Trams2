@@ -11,8 +11,6 @@ import timber.log.Timber
 
 class StopDaoImpl : StopDao {
 
-
-
     override fun getStops(): Observable<List<StopModel>> {
 
     return Observable.create<List<StopModel>>{
@@ -20,11 +18,8 @@ class StopDaoImpl : StopDao {
         Realm.getDefaultInstance()
                 .executeTransaction { realm ->
                     val list: List<StopModel> = realm.where(StopModel::class.java).findAll()
-
                     Timber.d("Lists $list")
-
                     emitter.onNext(list)
-
                     emitter.onComplete()
                 }
     } }
@@ -44,27 +39,15 @@ class StopDaoImpl : StopDao {
             : Observable<List<TimeTableElementModel>> {
         return Observable.create<List<TimeTableElementModel>>{
             emitter ->
-            //Realm.getDefaultInstance().use {
-                //it.executeTransaction { realm ->
                     val list: List<TimeTableElementModel> = Realm.getDefaultInstance()
                         .where(TimeTableElementModel::class.java)
                         .equalTo("stopId", stopId)
                         .equalTo("stopNumber", stopNumber)
                         .findAll()
 
-                    //Timber.d("Lists $list")
-
                     Timber.d("Find for stopId: $stopId stopNumber: $stopNumber size: ${list.size}")
-
                     emitter.onNext(list)
-
                     emitter.onComplete()
-                //}
-           // }
-           // Realm.getDefaultInstance().close()
-
-
-
         }
     }
 

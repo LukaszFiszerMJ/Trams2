@@ -33,10 +33,8 @@ class TimeTableViewModel (
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe ({
                     it.map.forEach{ entry ->
-                       // Timber.d("my key ${entry.key}")
 
                         entry.value.forEach {
-                          //  Timber.d("dupa $it")
 
                             if(hours[entry.key] == null)
                                 hours[entry.key] =  mutableListOf()

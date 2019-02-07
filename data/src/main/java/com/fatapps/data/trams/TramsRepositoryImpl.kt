@@ -6,7 +6,6 @@ import com.fatapps.data.trams.db.StopDao
 import com.fatapps.data.trams.service.TimeTableRemoteService
 import com.fatapps.data.trams.service.TramStopsRemoteService
 import com.fatapps.data.trams.service.pojo.ResultApi
-import com.fatapps.domain.model.DataStop
 import com.fatapps.domain.model.Result
 import com.fatapps.domain.model.Stop
 import com.fatapps.domain.repo.TramsRepository
@@ -61,7 +60,6 @@ class TramsRepositoryImpl(
             it.stops.map { stopModelConverter.apiToDomain(it) }
         }.doOnNext { data ->
             Timber.d("Data from network saving disk and memory")
-            //  memory = data
             stopDao.saveStops(data.map { stopModelConverter.domainToModel(it) }).subscribe()
         }
     }

@@ -29,7 +29,6 @@ private val locationModelConverter: LocationModelConverter
     private fun initLocationTracker(){
 
         val lastLocation  = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-       // Timber.d("Lasst known location altitude ${lastLocation.altitude}")
         trackLocationSubject.onNext(
             locationModelConverter.apiToDomain(lastLocation)
         )
